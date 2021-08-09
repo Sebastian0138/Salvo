@@ -45,37 +45,28 @@ public class SalvoApplication {
 			playerRepository.save(player4);
 
 
-			GamePlayer gamelayer1 = new GamePlayer(juego1,LocalDateTime.now(),player1);
-			gamePlayerRepository.save(gamelayer1);
+			GamePlayer gamePlayer1 = new GamePlayer(player1,LocalDateTime.now(),juego1);
+			gamePlayerRepository.save(gamePlayer1);
 
-			GamePlayer gamelayer2 = new GamePlayer(juego1,LocalDateTime.now(),player2);
-			gamePlayerRepository.save(gamelayer2);
+			GamePlayer gamePlayer2 = new GamePlayer(player2,LocalDateTime.now(),juego1);
+			gamePlayerRepository.save(gamePlayer2);
+
+			GamePlayer gamePlayer3 = new GamePlayer(player1,LocalDateTime.now(),juego2);
+			gamePlayerRepository.save(gamePlayer3);
+
+			GamePlayer gamePlayer4 = new GamePlayer(player2,LocalDateTime.now(),juego2);
+			gamePlayerRepository.save(gamePlayer4);
+
+			GamePlayer gamePlayer5 = new GamePlayer(player4,LocalDateTime.now(),juego3);
+			gamePlayerRepository.save(gamePlayer5);
+
+			GamePlayer gamePlayer6 = new GamePlayer(player3,LocalDateTime.now(),juego3);
+			gamePlayerRepository.save(gamePlayer6);
 
 
-			GamePlayer gamelayer3 = new GamePlayer(juego2,LocalDateTime.now(),player3);
-			gamePlayerRepository.save(gamelayer3);
-
-			GamePlayer gamelayer4 = new GamePlayer(juego2,LocalDateTime.now(),player4);
-			gamePlayerRepository.save(gamelayer4);
 
 
-			GamePlayer gamelayer5 = new GamePlayer(juego3,LocalDateTime.now(),player2);
-			gamePlayerRepository.save(gamelayer5);
 
-			GamePlayer gamelayer6 = new GamePlayer(juego3,LocalDateTime.now(),player3);
-			gamePlayerRepository.save(gamelayer6);
-
-			GamePlayer gamelayer7 = new GamePlayer(juego4,LocalDateTime.now(),player3);
-			gamePlayerRepository.save(gamelayer7);
-
-			GamePlayer gamelayer8 = new GamePlayer(juego4,LocalDateTime.now(),player1);
-			gamePlayerRepository.save(gamelayer8);
-
-			GamePlayer gamelayer9 = new GamePlayer(juego5,LocalDateTime.now(),player3);
-			gamePlayerRepository.save(gamelayer9);
-
-			GamePlayer gamelayer10 = new GamePlayer(juego5,LocalDateTime.now(),player2);
-			gamePlayerRepository.save(gamelayer10);
 
 		};
 	}

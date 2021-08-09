@@ -4,6 +4,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api")
@@ -14,8 +16,20 @@ import java.util.List;
         @Autowired
         private GameRepository gameRepository;
 
-        @RequestMapping("/games")
-        public List<Game> getAll() {
-            return gameRepository.findAll();
-        }
+       /* @RequestMapping("/games")
+        public List<Long> getAll() {
+            return gameRepository.findAll().stream().map(game -> game.getId()).collect(Collectors.toList());
+        }*/
+
+    @RequestMapping("/games")
+    public List<Map<String,Object>>getGamell(){
+
+            return gameRepository.findAll()
+                    .stream()
+                    .map(game -> game.makeGameDTO())
+                    .collect(Collectors.toList());
+    }
+
+
 }
+
