@@ -8,6 +8,7 @@ import java.time.LocalDateTime;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 
@@ -26,6 +27,9 @@ public class GamePlayer {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="playerID")
     private Player playerID;
+
+    @OneToMany(mappedBy="gamePlayerID", fetch=FetchType.EAGER)
+    private Set<Ship>ships;
 
     private LocalDateTime joinDate;
 
@@ -80,5 +84,13 @@ public class GamePlayer {
 
     public void setJoinDate(LocalDateTime joinDate) {
         this.joinDate = joinDate;
+    }
+
+    public Set<Ship> getShip() {
+        return ships;
+    }
+
+    public void setShip(Set<Ship> ship) {
+        this.ships = ship;
     }
 }
