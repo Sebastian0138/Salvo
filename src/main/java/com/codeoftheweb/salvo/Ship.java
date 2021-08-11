@@ -1,5 +1,6 @@
 package com.codeoftheweb.salvo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -18,18 +19,29 @@ public class Ship {
     @JoinColumn(name="gamePlayerID")
     private GamePlayer gamePlayerID;
 
+    @JsonIgnore
+
     @ElementCollection
     @Column(name="shipLocation")
     private List<String> shipLocation = new ArrayList<>();
+
+
+
     public Ship() { }
 
-    public Ship(GamePlayer gamePlayerId, String shipType) {
-        this.gamePlayerID = gamePlayerId;
+    public Ship(String shipType, GamePlayer gamePlayerID, List<String> shipLocation) {
         this.shipType = shipType;
+        this.gamePlayerID = gamePlayerID;
+        this.shipLocation = shipLocation;
     }
 
     public GamePlayer getGamePlayerId() {
         return gamePlayerID;
+    }
+
+
+    public Long getId() {
+        return id;
     }
 
     public void setGamePlayerId(GamePlayer gamePlayerId) {
@@ -43,4 +55,21 @@ public class Ship {
     public void setShipType(String shipType) {
         this.shipType = shipType;
     }
+
+    public List<String> getShipLocation() {
+        return shipLocation;
+    }
+
+    public void setShipLocation(List<String> shipLocation) {
+        this.shipLocation = shipLocation;
+    }
+
+    public GamePlayer getGamePlayerID() {
+        return gamePlayerID;
+    }
+
+    public void setGamePlayerID(GamePlayer gamePlayerID) {
+        this.gamePlayerID = gamePlayerID;
+    }
 }
+
