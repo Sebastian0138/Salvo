@@ -31,9 +31,9 @@ import java.util.stream.Collectors;
                     .collect(Collectors.toList());
     }
     @RequestMapping("/game_view/{nn}")
-    public Long findGamePlayer(@PathVariable Long nn) {
+    public Map findGamePlayer(@PathVariable Long nn) {
          GamePlayer gamePlayerID = gamePlayerRepository.findById(nn).get();
-         return gamePlayerID.getId();
+         return gamePlayerID.getGameID().makeGameDTO();
 
     }
 

@@ -5,7 +5,10 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 @Entity
 public class Ship {
@@ -39,6 +42,14 @@ public class Ship {
         return gamePlayerID;
     }
 
+    public Map<String,Object> makeShipDTO(){
+
+        Map<String,Object> dto= new LinkedHashMap<>();
+        dto.put("types",this.getShipType());
+        dto.put("location",this.getShipLocation());
+
+        return dto;
+    }
 
     public Long getId() {
         return id;
@@ -71,5 +82,8 @@ public class Ship {
     public void setGamePlayerID(GamePlayer gamePlayerID) {
         this.gamePlayerID = gamePlayerID;
     }
+
+
+
 }
 
